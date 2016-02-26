@@ -1,22 +1,22 @@
-# magical-mv [![NPM version](https://img.shields.io/npm/v/magical-mv.svg)](https://npmjs.com/package/magical-mv) [![NPM downloads](https://img.shields.io/npm/dm/magical-mv.svg)](https://npmjs.com/package/magical-mv) [![Build Status](https://img.shields.io/circleci/project/egoist/magical-mv/master.svg)](https://circleci.com/gh/egoist/magical-mv)
+# magical-move [![NPM version](https://img.shields.io/npm/v/magical-move.svg)](https://npmjs.com/package/magical-move) [![NPM downloads](https://img.shields.io/npm/dm/magical-move.svg)](https://npmjs.com/package/magical-move) [![Build Status](https://img.shields.io/circleci/project/egoist/magical-move/master.svg)](https://circleci.com/gh/egoist/magical-move)
 
 > mv with data replacement.
 
 ## Install
 
 ```bash
-$ npm install --save magical-mv
+$ npm install --save magical-move
 ```
 
 ## Usage
 
 ```js
-const mv = require('magical-mv')
+const move = require('magical-move')
 
 /** source.js:
 hello {{ name }}
 */
-mv('./source.js', './output.js', {name: 'egoist'})
+move('./source.js', './output.js', {name: 'egoist'})
 	.then(content => {
 		console.log('Done!')
 	})
@@ -25,9 +25,24 @@ hello egoist
 */
 ```
 
+## CLI
+
+### Install
+
+```bash
+$ npm install -g magical-move
+```
+
+### Usage
+
+```bash
+# same result as above
+$ move source.js output.js --name egoist
+```
+
 ## API
 
-### mv(from, to, [data, handlebarsOpts])
+### move(from, to, [data, handlebarsOpts])
 
 **from** `String` source file
 
@@ -37,7 +52,7 @@ hello egoist
 
 **handlebarsOpts** `Object` Options for `handlebars.compile`
 
-## mv.sync
+## move.sync
 
 Same options but synchronously.
 

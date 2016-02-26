@@ -1,9 +1,9 @@
 {
-  "name": "magical-mv",
+  "name": "magical-move",
   "version": "0.1.0",
   "description": "mv with data replacement.",
   "license": "MIT",
-  "repository": "egoist/magical-mv",
+  "repository": "egoist/magical-move",
   "author": {
     "name": "EGOIST",
     "email": "0x142857@gmail.com",
@@ -15,15 +15,21 @@
   "scripts": {
     "test": "xo index.js test/test*.js && ava test/test*.js"
   },
+  "bin": {
+    "move": "cli.js"
+  },
   "files": [
-    "index.js"
+    "index.js",
+    "cli.js"
   ],
   "keywords": [
-    ""
+    "mv",
+    "move"
   ],
   "dependencies": {
     "fs-promise": "^0.4.1",
-    "handlebars": "^4.0.5"
+    "handlebars": "^4.0.5",
+    "minimist": "^1.2.0"
   },
   "devDependencies": {
     "ava": "^0.10.0",
