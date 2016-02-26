@@ -1,6 +1,6 @@
 {
   "name": "magical-move",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "mv with data replacement.",
   "license": "MIT",
   "repository": "egoist/magical-move",
