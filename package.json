@@ -1,0 +1,35 @@
+{
+  "name": "magical-mv",
+  "version": "0.0.0",
+  "description": "mv with data replacement.",
+  "license": "MIT",
+  "repository": "egoist/magical-mv",
+  "author": {
+    "name": "EGOIST",
+    "email": "0x142857@gmail.com",
+    "url": "github.com/egoist"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "xo index.js test/test*.js && ava test/test*.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {
+    "fs-promise": "^0.4.1",
+    "handlebars": "^4.0.5"
+  },
+  "devDependencies": {
+    "ava": "^0.10.0",
+    "xo": "^0.12.1"
+  },
+  "xo": {
+    "semicolon": false
+  }
+}
