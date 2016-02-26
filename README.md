@@ -52,7 +52,7 @@ $ move source.js output.js --name egoist
 
 **handlebarsOpts** `Object` Options for `handlebars.compile`
 
-## move.sync
+### move.sync
 
 Same options but synchronously.
 
