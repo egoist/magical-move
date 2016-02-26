@@ -1,6 +1,6 @@
 {
   "name": "magical-mv",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "mv with data replacement.",
   "license": "MIT",
   "repository": "egoist/magical-mv",
