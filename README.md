@@ -18,10 +18,9 @@ const move = require('magical-move')
 /** source.js:
 hello {{ name }}
 */
-move('./source.js', './output.js', {name: 'egoist'})
-	.then(content => {
-		console.log('Done!')
-	})
+async function main() {
+	await move('./source.js', './output.js', {name: 'egoist'})
+}
 /** output.js:
 hello egoist
 */
