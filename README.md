@@ -2,6 +2,8 @@
 
 > mv with data replacement.
 
+If you wanna copy and parse content, use [mem-fs-editor](https://github.com/SBoudrias/mem-fs-editor#copytplfrom-to-context-options) instead.
+
 ## Install
 
 ```bash

@@ -15,7 +15,10 @@ module.exports = function (from, to, data, handlebarsOpts) {
 				var template = h.compile(content, handlebarsOpts)
 				content = template(data)
 			}
-			return fs.writeFile(to, content, 'utf8')
+			return fsPromise.writeFile(to, content, 'utf8')
+		})
+		.then(function () {
+			return fsPromise.unlink(from)
 		})
 }
 
@@ -32,5 +35,5 @@ module.exports.sync = function (from, to, data, handlebarsOpts) {
 	}
 
 	fs.writeFileSync(to, content, 'utf8')
-	return content
+	fs.unlinkSync(from)
 }
