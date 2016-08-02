@@ -43,13 +43,15 @@ $ move source.js output.js --name egoist
 
 ## API
 
-### move(from, to, [data])
+### move(from, to, [data, nunjucksOptions])
 
 **from** `String` source file
 
 **to** `String` output file
 
 **data** `Object` The data to render template
+
+**nunjucksOptions** https://mozilla.github.io/nunjucks/api.html#configure
 
 ### move.sync
 

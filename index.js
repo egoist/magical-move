@@ -3,13 +3,12 @@ var fs = require('fs')
 var pify = require('pify')
 var nunjucks = require('nunjucks')
 
-nunjucks.configure({autoescape: true})
-
-module.exports = function (from, to, data) {
+module.exports = function (from, to, data, nunjucksOptions) {
 	if (!from || !to) {
 		throw new Error('Expected location')
 	}
 	data = data || {}
+	nunjucks.configure(nunjucksOptions)
 
 	return pify(fs.readFile)(from, 'utf8')
 		.then(function (content) {
@@ -21,10 +20,13 @@ module.exports = function (from, to, data) {
 		})
 }
 
-module.exports.sync = function (from, to, data) {
+module.exports.sync = function (from, to, data, nunjucksOptions) {
 	if (!from || !to) {
 		throw new Error('Expected location')
 	}
+
+	data = data || {}
+	nunjucks.configure(nunjucksOptions)
 
 	var content = fs.readFileSync(from, 'utf8')
 	content = nunjucks.renderString(content, data)
