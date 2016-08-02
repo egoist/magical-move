@@ -15,7 +15,7 @@ $ npm install --save magical-move
 ```js
 const move = require('magical-move')
 
-/** source.js:
+/** source.js, in nunjucks template syntax:
 hello {{ name }}
 */
 async function main() {
@@ -43,15 +43,13 @@ $ move source.js output.js --name egoist
 
 ## API
 
-### move(from, to, [data, handlebarsOpts])
+### move(from, to, [data])
 
 **from** `String` source file
 
 **to** `String` output file
 
 **data** `Object` The data to render template
-
-**handlebarsOpts** `Object` Options for `handlebars.compile`
 
 ### move.sync
 

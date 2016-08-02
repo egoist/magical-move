@@ -1,38 +1,33 @@
 'use strict'
-
 var fs = require('fs')
-var fsPromise = require('fs-promise')
-var h = require('handlebars')
+var pify = require('pify')
+var nunjucks = require('nunjucks')
 
-module.exports = function (from, to, data, handlebarsOpts) {
+nunjucks.configure({autoescape: true})
+
+module.exports = function (from, to, data) {
 	if (!from || !to) {
 		throw new Error('Expected location')
 	}
+	data = data || {}
 
-	return fsPromise.readFile(from, 'utf8')
+	return pify(fs.readFile)(from, 'utf8')
 		.then(function (content) {
-			if (data) {
-				var template = h.compile(content, handlebarsOpts)
-				content = template(data)
-			}
-			return fsPromise.writeFile(to, content, 'utf8')
+			content = nunjucks.renderString(content, data)
+			return pify(fs.writeFile)(to, content, 'utf8')
 		})
 		.then(function () {
-			return fsPromise.unlink(from)
+			return pify(fs.unlink)(from)
 		})
 }
 
-module.exports.sync = function (from, to, data, handlebarsOpts) {
+module.exports.sync = function (from, to, data) {
 	if (!from || !to) {
 		throw new Error('Expected location')
 	}
 
 	var content = fs.readFileSync(from, 'utf8')
-
-	if (data) {
-		var template = h.compile(content, handlebarsOpts)
-		content = template(data)
-	}
+	content = nunjucks.renderString(content, data)
 
 	fs.writeFileSync(to, content, 'utf8')
 	fs.unlinkSync(from)
